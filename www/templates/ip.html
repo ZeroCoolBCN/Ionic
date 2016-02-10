@@ -1,0 +1,22 @@
+<ion-view view-title="Dashboard" hide-back-button="true">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="ip" ng-model="entrada.ip">
+            </label>
+            <label class="item item-input">
+                <button ng-click="SoapClient()" class="button button-positive">Ejecutar</button>
+            </label>
+            <div class="item" ng-repeat="item in responseIP">
+                {{item}}
+            </div>
+
+
+        </div>
+
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

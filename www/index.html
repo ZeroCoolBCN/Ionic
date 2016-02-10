@@ -21,33 +21,12 @@
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
     <script src="js/app.js"></script>
+
 </head>
-<body ng-app="starter" ng-controller="MainCtrl">
-
-<ion-pane>
-    <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-    </ion-header-bar>
-    <ion-content>
-
-        <div class="list">
-            <label class="item item-input">
-                <input type="text" placeholder="Pais" ng-model="country.ip">
-            </label>
-            <label class="item item-input">
-                <button ng-click="SoapClient()" class="button button-positive">Ejecutar</button>
-            </label>
-            <div class="item" ng-repeat="item in response">
-                {{item}}
-            </div>
-
-
-        </div>
-
-
-        </div>
-    </ion-content>
-</ion-pane>
+<body ng-app="starter" class="platform-android platform-cordova platform-webview">
+<ion-nav-view></ion-nav-view>
 </body>
 </html>

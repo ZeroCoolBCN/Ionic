@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic','angularSoap'])
+angular.module('starter', ['ionic','angularSoap','starter.service','starter.controller'])
 
     .run(function($ionicPlatform) {
         $ionicPlatform.ready(function() {
@@ -23,32 +23,58 @@ angular.module('starter', ['ionic','angularSoap'])
         })
     })
 
-    .config(function($httpProvider) {
+    .config(function($httpProvider, $urlRouterProvider, $httpProvider,$stateProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+        $stateProvider
+
+            .state('app', {
+                url: '/app',
+                abstract: true,
+                templateUrl: 'templates/menu.html',
+                controller: 'MainCtrl'
+            })
+
+            //--------------------------------------
+
+            .state('app.dashboard', {
+                url: '/dashboard',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/dashboard.html'
+                    }
+                },
+                authStatus: false
+            })
+            .state('app.todos', {
+                url: '/todos',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/todos.html',
+                        controller: 'MainCtrl'
+                    }
+                },
+
+            })
+            //--------------------------------------
+
+
+            .state('app.ip', {
+                url: '/ip',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/ip.html',
+                        controller: 'MainCtrl'
+                    }
+                },
+
+            })
+
+
+        $urlRouterProvider.otherwise('/app/dashboard');
     })
 
-    .factory("testService", ['$soap',function($soap){
-        var base_url = "http://www.webservicex.net/geoipservice.asmx";
-        var config = {headers: {'Content-Type': 'application/x-www-form-urlencoded'}};
-        return {
-            GetCitiesByCountry: function(IPAddress){
-                return $soap.post(base_url,"GetGeoIP", {IPAddress: IPAddress},config);
-            }
-        }
-    }])
-
-    .controller('MainCtrl', function($scope, testService) {
-        $scope.country ={
-            ip:''
-        }
-        $scope.SoapClient = function(){
-
-            testService.GetCitiesByCountry($scope.country.ip).then(function(response){
-                $scope.response = response;
-            });
-        }
 
 
-    })
 

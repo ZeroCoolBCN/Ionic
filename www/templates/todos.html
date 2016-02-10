@@ -1,0 +1,25 @@
+<ion-view view-title="PAIS y CIUDAD" hide-back-button="true">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Ciudad" ng-model="entrada.ciudad">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Pais" ng-model="entrada.pais">
+            </label>
+            <label class="item item-input">
+                <button ng-click="SoapCountryAll()" class="button button-positive">Ejecutar</button>
+            </label>
+        </div>
+
+
+
+                {{responseALL}}
+
+
+
+
+
+
+    </ion-content>
+</ion-view>

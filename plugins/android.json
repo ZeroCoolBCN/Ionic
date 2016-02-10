@@ -7,19 +7,19 @@
         "files": {}
     },
     "installed_plugins": {
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.soap436630"
+        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "com.ionicframework.soap436630"
         },
-        "cordova-plugin-device": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.soap436630"
         },
         "cordova-plugin-splashscreen": {
             "PACKAGE_NAME": "com.ionicframework.soap436630"
         },
         "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "com.ionicframework.soap436630"
-        },
-        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.ionicframework.soap436630"
         },
         "ionic-plugin-keyboard": {

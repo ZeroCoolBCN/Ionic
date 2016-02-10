@@ -1,0 +1,17 @@
+<ion-view view-title="Datos País" hide-back-button="true">
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Pais" ng-model="entrada.pais">
+            </label>
+            <label class="item item-input">
+                <button ng-click="SoapCountry()" class="button button-positive">Ejecutar</button>
+            </label>
+        </div>
+        {{responsePais}}
+
+
+
+
+    </ion-content>
+</ion-view>
